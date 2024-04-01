@@ -4,17 +4,25 @@
   
   
   <entry>
-    <title>关于Java基础实操</title>
+    <title>第一篇测试</title>
     <link href="/2024/04/01/%E5%85%B3%E4%BA%8EJava%E5%9F%BA%E7%A1%80%E5%AE%9E%E6%93%8D/"/>
     <url>/2024/04/01/%E5%85%B3%E4%BA%8EJava%E5%9F%BA%E7%A1%80%E5%AE%9E%E6%93%8D/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>欢迎来到我的 Hexo 博客！这是我的第一篇测试文章。</p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，通过静态文件生成静态网站。</p><h2 id="为什么选择-Hexo？"><a href="#为什么选择-Hexo？" class="headerlink" title="为什么选择 Hexo？"></a>为什么选择 Hexo？</h2><ul><li><strong>快速生成</strong>：Hexo 生成静态文件的速度极快，可以在短时间内处理大量内容。</li><li><strong>丰富的插件</strong>：Hexo 拥有丰富的插件系统，可以轻松添加功能或集成服务。</li><li><strong>简单易用</strong>：Hexo 的学习曲线平缓，即便是初学者也可以轻松上手。</li></ul><h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><p>开始使用 Hexo 非常简单，只需几个步骤：</p><ol><li>安装 Node.js 和 npm。</li><li>使用 npm 安装 Hexo：<code>npm install -g hexo-cli</code>。</li><li>初始化一个新的 Hexo 项目：<code>hexo init &lt;folder&gt;</code>。</li><li>进入项目目录，运行 <code>hexo server</code> 启动本地服务器预览博客。</li></ol><p>感谢您的阅读，希望您喜欢我的第一篇测试文章！</p><hr>]]></content>
     
+    
+    <categories>
+      
+      <category>技术博客</category>
+      
+    </categories>
     
     
     <tags>
       
-      <tag>关于Java基础实操</tag>
+      <tag>测试</tag>
+      
+      <tag>Hexo</tag>
       
     </tags>
     
