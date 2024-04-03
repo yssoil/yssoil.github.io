@@ -18,8 +18,8 @@
   
     <meta name="description" content="欢迎来到我的博客！很多业务都需要订单服务, 所以先举例子再抽取是这篇文章要做的事情,后续也会迭代版本。 介绍首先是背景 当前例子下是一个网约车的项目  我们做一个基础版本的订单服务 然后后续会去迭代这个版本。 时序图  流程画时序图 -&gt; 接口设计 -&gt; 项目创建 -&gt; 魔法值测试 -&gt; 订单表创建 -&gt; 添加计价规则 开始设计接口:  我们应该养成抱着APIFOX或">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于订单服务">
-<meta property="og:url" content="http://example.com/2024/04/01/%E5%85%B3%E4%BA%8EJava%E5%9F%BA%E7%A1%80%E5%AE%9E%E6%93%8D/index.html">
+<meta property="og:title" content="业务-关于订单服务">
+<meta property="og:url" content="http://example.com/2024/04/01/%E4%B8%9A%E5%8A%A1-%E5%85%B3%E4%BA%8E%E8%AE%A2%E5%8D%95%E6%9C%8D%E5%8A%A1/index.html">
 <meta property="og:site_name" content="辛以塞的学习博客">
 <meta property="og:description" content="欢迎来到我的博客！很多业务都需要订单服务, 所以先举例子再抽取是这篇文章要做的事情,后续也会迭代版本。 介绍首先是背景 当前例子下是一个网约车的项目  我们做一个基础版本的订单服务 然后后续会去迭代这个版本。 时序图  流程画时序图 -&gt; 接口设计 -&gt; 项目创建 -&gt; 魔法值测试 -&gt; 订单表创建 -&gt; 添加计价规则 开始设计接口:  我们应该养成抱着APIFOX或">
 <meta property="og:locale" content="en_US">
@@ -28,8 +28,9 @@
 <meta property="og:image" content="http://example.com/images/orderTime.jpg">
 <meta property="og:image" content="http://example.com/images/">
 <meta property="og:image" content="http://example.com/images/%E8%AE%A1%E4%BB%B7%E8%A7%84%E5%88%99%E4%BC%A0%E9%80%92%E6%89%A9%E5%B1%95%E5%9B%BE.jpg">
+<meta property="og:image" content="http://example.com/images/%E6%B4%BE%E5%8D%95%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%9B%BE.jpg">
 <meta property="article:published_time" content="2024-04-01T04:00:00.000Z">
-<meta property="article:modified_time" content="2024-04-02T13:49:39.362Z">
+<meta property="article:modified_time" content="2024-04-03T10:34:18.528Z">
 <meta property="article:author" content="辛闻">
 <meta property="article:tag" content="网约车">
 <meta property="article:tag" content="订单">
@@ -39,7 +40,7 @@
   
   
   
-  <title>关于订单服务 - 辛以塞的学习博客</title>
+  <title>业务-关于订单服务 - 辛以塞的学习博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -234,7 +235,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="关于订单服务"></span>
+            <span id="subtitle" data-typed-text="业务-关于订单服务"></span>
           
         </div>
 
@@ -257,7 +258,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k words
+          1.8k words
         
       </span>
     
@@ -268,7 +269,7 @@
         
         
         
-          13 mins
+          16 mins
         
       </span>
     
@@ -313,7 +314,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">关于订单服务</h1>
+            <h1 id="seo-header">业务-关于订单服务</h1>
             
             
               <div class="markdown-body">
@@ -439,11 +440,27 @@
 提醒他 计价发生改变  你接受不接受新计价规则 如果接受ok 那就去下单 不接受就没事了 
 </code></pre>
 <p>记忆点: 司机有总流程中的1234567条 是不允许下单的  （订单开始  司机接单 去接乘客  司机到达 乘客上车司机启程 到达地点 未支付）</p>
-<h2 id="乘客下单业务校验"><a href="#乘客下单业务校验" class="headerlink" title="乘客下单业务校验"></a><strong>乘客下单业务校验</strong></h2><pre><code class="hljs">下单流程 : 
+<h2 id="派单业务"><a href="#派单业务" class="headerlink" title="派单业务"></a><strong>派单业务</strong></h2><p><img src="/images/%E6%B4%BE%E5%8D%95%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%9B%BE.jpg" srcset="/img/loading.gif" lazyload alt="派单业务图"></p>
+<h3 id="针对于用户自身合法性的校验"><a href="#针对于用户自身合法性的校验" class="headerlink" title="针对于用户自身合法性的校验"></a><strong>针对于用户自身合法性的校验</strong></h3><h4 id="乘客下单业务校验"><a href="#乘客下单业务校验" class="headerlink" title="乘客下单业务校验"></a><strong>乘客下单业务校验</strong></h4><pre><code class="hljs">下单流程 : 
 if 订单表中 有一个字段叫订单状态  如果状态是1-7不能继续下单 （constants）
-else 可以下单 
+else 可以下单  
 </code></pre>
-<p>有点乱后续会完善 ！</p>
+<h4 id="黑名单校验业务"><a href="#黑名单校验业务" class="headerlink" title="黑名单校验业务"></a><strong>黑名单校验业务</strong></h4><pre><code class="hljs"> 背景 网约车项目 : 1分钱乘车活动  	
+ 下单时判断设备号 是否在1h内下多次订单  if是 提醒不允许下单 else 
+ 操作redis: （key）设备号 （value）次数 , TTL    
+ 在HttpServletRequest的header中 拉去 deviceCode 这就是设备号了
+</code></pre>
+<h3 id="基于业务实际展开情况的校验"><a href="#基于业务实际展开情况的校验" class="headerlink" title="基于业务实际展开情况的校验"></a><strong>基于业务实际展开情况的校验</strong></h3><pre><code class="hljs">1、当前城市和车型是否开通业务？
+（通过城市编号和车型 这两个字段 去计价规则表中 查询如果有拿过来或者不拿 看后续需求  
+返回true 否则 false）
+</code></pre>
+<h3 id="查询城市可用司机"><a href="#查询城市可用司机" class="headerlink" title="查询城市可用司机"></a><strong>查询城市可用司机</strong></h3><pre><code class="hljs">司机信息表 查看司机状态 通过城市 拉去到 当前城市信息 然后查看状态
+</code></pre>
+<h2 id="派单逻辑"><a href="#派单逻辑" class="headerlink" title="派单逻辑"></a><strong>派单逻辑</strong></h2><pre><code class="hljs">service-order端 通过循环调用 周边所搜 每次扩大半径就ok了 然后通过定时任务调用就行了 
+优化
+把2000 4000 5000 塞进list 然后循环的拉去附近终端 拉取到后解析 出tid和carid 看看司机能不能接单  然后进行后续操作
+</code></pre>
+<h1 id="派单流程前置流程整体联调"><a href="#派单流程前置流程整体联调" class="headerlink" title="派单流程前置流程整体联调"></a><strong>派单流程前置流程整体联调</strong></h1><p>有点乱后续会完善 ！</p>
 <hr>
 
                 
@@ -494,8 +511,8 @@ else 可以下单
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>关于订单服务</div>
-      <div>http://example.com/2024/04/01/关于Java基础实操/</div>
+      <div>业务-关于订单服务</div>
+      <div>http://example.com/2024/04/01/业务-关于订单服务/</div>
     </div>
     <div class="license-meta">
       
