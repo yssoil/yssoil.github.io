@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://example.com/images/%E8%AE%A1%E4%BB%B7%E8%A7%84%E5%88%99%E4%BC%A0%E9%80%92%E6%89%A9%E5%B1%95%E5%9B%BE.jpg">
 <meta property="og:image" content="http://example.com/images/%E6%B4%BE%E5%8D%95%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%9B%BE.jpg">
 <meta property="article:published_time" content="2024-04-01T04:00:00.000Z">
-<meta property="article:modified_time" content="2024-04-04T15:30:22.377Z">
+<meta property="article:modified_time" content="2024-04-05T10:06:46.068Z">
 <meta property="article:author" content="辛闻">
 <meta property="article:tag" content="网约车">
 <meta property="article:tag" content="订单">
@@ -258,7 +258,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k words
+          3.2k words
         
       </span>
     
@@ -269,7 +269,7 @@
         
         
         
-          24 mins
+          27 mins
         
       </span>
     
@@ -525,13 +525,33 @@ tips: 当用户下订单时 就开始2km 4km 6km(5km  因为高德限制 我们�
     &#125;
 16. 司机客户端模拟
     &#123;
-      现在我们的订单已经填充完毕了 就是已经完成了 订单抢司机的操作 
+      现在我们的订单已经填充完毕了 就是已经完成了 订单抢司机的操作 。
       但是司机端不知道啊 所以我们得写一个通知 让司机客户端也知道
       他被人抢到了 该执行这个订单了
     &#125;
 17. (前后端监听模拟 后续补充 )
    阿里大佬教育: 先把单机做出来然后在平移到项目中 
-18. 
+18. 消息服务推送(前置知识 长连接)
+      &#123;
+        1. 连接服务     司机客户端 source = new  EventSource(&quot;http://localhost:8080/connect/&quot;+dirverId);   后端接口url /connect/&#123;driverId&#125;  使用SseEmitter    
+        2. 发送消息 
+        
+        流程解释
+        这个实现涉及前端和后端的交云通讯，使用了Server-Sent Events (SSE)技术。流程如下：
+        前端初始化SSE连接：当页面加载完毕后，JavaScript代码尝试通过EventSource与服务器建立连接，使用的是/connect/&#123;driverId&#125;这个URL，&#123;driverId&#125;是司机的ID。
+
+        后端接收连接请求：	SpringBoot应用的DriverEventController控制器中定义了处理/connect/&#123;driverId&#125;请求的方法。当该请求到达时，会为对应的司机ID创建一个新的SseEmitter实例，并立即返回给客户端保持连接。
+
+        后端发送消息：在后端，handleDriverConnect方法通过向map中存入司机ID和Sseemitter实力。
+
+        然后push方法会通过传进来司机ID和Content 向 这个id的司机推送content  通过send  。
+        
+        前端接收并展示消息：前端通过监听EventSource上的message事件来接收从后端发送的消息，并将其显示在页面上。
+
+        结束连接：发送完消息后，后端调用emitter.complete()结束连接。
+        ---------------------------------------------
+        然后就是下订单后 把消息推送给司机端然后再推送给用户端  操作是一样的 但是就是 信息是不一样的  
+     &#125;
 </code></pre>
 <p>把这些信息补全了<br>有点乱后续会完善 ！</p>
 <hr>
